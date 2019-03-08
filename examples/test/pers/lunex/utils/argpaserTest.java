@@ -40,13 +40,13 @@ public class argpaserTest extends Parser {
     private Boolean help;
     @Param(id = "version", names = {"-v", "--version"}, desc = "show version message.", conflicts = { "all" })
     private Boolean version;
-    @Param(id = "name", index = 0, type = Type.STRING, desc = "username.", arity = 1)
+    @Param(id = "name", index = 0, type = Type.STRING, desc = "username.", arity = 1, choices = { "lunex", "vent", "venique" })
     private String name;
     @Param(id = "num", index = 1, type = Type.INT, desc = "a int number.", arity = 1, conflicts = { "intlist" }, required = true)
     private Integer num;
-    @Param(id = "def", index = 2, type = Type.INT, desc = "a int number.", arity = 1, def = "-121")
+    @Param(id = "def", index = 2, type = Type.INT, desc = "a int number.", arity = 1, defaults = "-121")
     private Integer def;
-    @Param(id = "float", names = {"-f", "--float"}, type = Type.FLOAT, desc = "a float number.", arity = 1, def = "0.5")
+    @Param(id = "float", names = {"-f", "--float"}, type = Type.FLOAT, desc = "a float number.", arity = 1, defaults = "0.5")
     private Float f;
     @Param(id = "intlist", names = {"-l", "--list"}, type = Type.ARRAY_INT, desc = "a int array.", arity = 3)
     private ArrayList<Integer> intlist;

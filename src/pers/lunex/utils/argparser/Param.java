@@ -17,5 +17,6 @@ public @interface Param {
     String desc() default "no description.";
     boolean dynamic() default false;
     String[] conflicts() default { };
-    String def() default "";
+    String defaults() default "";
+    String[] choices() default { };
 }

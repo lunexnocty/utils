@@ -58,7 +58,7 @@ public class Parser {
 
     }
 
-    public Parser() {
+    public Parser()  {
         this.Init();
     }
 
@@ -131,8 +131,8 @@ public class Parser {
                 if (isExsit) {
                     this.mutex.put(param.id(), param.conflicts());
                 } else {
-                    if ( !("".equals(param.def())) ) {
-                        ArrayList<String> values = new ArrayList<>(Arrays.asList(param.def().strip().split(" ")));
+                    if ( !("".equals(param.defaults())) ) {
+                        ArrayList<String> values = new ArrayList<>(Arrays.asList(param.defaults().strip().split(" ")));
                         field.set(this, this.Convert(values, param.type()));
                     } else if (param.required()) {
                         throw new ParserSyntaxException("[SyntaxError]: " + param.id() + " is necessary.");
@@ -201,7 +201,7 @@ public class Parser {
         }
     }
 
-    private void Init() {
+    protected void Init() {
         try {
             if(this.getClass().isAnnotationPresent(Command.class)) {
                 Command program = this.getClass().getAnnotation(Command.class);
